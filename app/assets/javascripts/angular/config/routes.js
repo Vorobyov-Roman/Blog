@@ -4,7 +4,7 @@
   function routes($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'home',
+        templateUrl: 'home.view',
         controller: 'HomeController',
         controllerAs: 'ctrl'
       })

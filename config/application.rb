@@ -23,7 +23,10 @@ module Blog
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    #Use .sass extention instead of .scss
+    # Use .sass extention instead of .scss
     config.sass.preferred_syntax = :sass
+
+    # Use .view suffix for angular templates
+    config.angular_templates.extension = 'view'
   end
 end

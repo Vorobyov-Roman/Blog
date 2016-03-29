@@ -23,3 +23,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap-sass'
 gem 'slim-rails'
 gem 'angularjs-rails'
+gem 'angular-rails-templates'
