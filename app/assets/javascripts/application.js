@@ -3,4 +3,5 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require angular
+//= require angular-route
 //= require_directory .
