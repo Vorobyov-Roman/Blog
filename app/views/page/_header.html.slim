@@ -1,0 +1,22 @@
+nav.navbar.navbar-default
+  div.container-fluid
+    div.navbar-header
+      a.navbar-brand[href='/'] Blog
+      
+      button.navbar-toggle.collapsed[type='button' data-toggle='collapse' data-target='#navbar-content']
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+
+    div.navbar-collapse.collapse#navbar-content
+      ul.nav.navbar-nav.navbar-right[ng-cloak]
+        li[ng-hide='']: button.btn.btn-default.navbar-btn[type='button'] Sign Up
+        li[ng-hide='']: button.btn.btn-default.navbar-btn[type='button'] Log In
+        li[ng-show='']: button.btn.btn-default.navbar-btn[type='button'] Sign Out
+        li[ng-show='']: button.btn.btn-default.navbar-btn[type='button'] Your Profile
+
+      form.navbar-form#search-bar
+        div.form-group
+          div.input-group
+            input.form-control[type='text' placeholder='Search']
+            span.input-group-addon: span.glyphicon.glyphicon-search

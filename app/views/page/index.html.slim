@@ -1,1 +1,8 @@
-ng-view
+div#header
+  == render partial: 'header'
+
+div#content
+  ng-view
+
+div#footer
+  == render partial: 'footer'
