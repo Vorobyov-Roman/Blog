@@ -10,8 +10,8 @@ nav.navbar.navbar-default
 
     div.navbar-collapse.collapse#navbar-content
       ul.nav.navbar-nav.navbar-right[ng-cloak]
-        li[ng-hide='']: button.btn.btn-default.navbar-btn[type='button'] Sign Up
-        li[ng-hide='']: button.btn.btn-default.navbar-btn[type='button'] Log In
+        li[ng-hide='']: button.btn.btn-default.navbar-btn[type='button' data-toggle='modal' data-target='#signup'] Sign Up
+        li[ng-hide='']: button.btn.btn-default.navbar-btn[type='button' data-toggle='modal' data-target='#login'] Log In
         li[ng-show='']: button.btn.btn-default.navbar-btn[type='button'] Sign Out
         li[ng-show='']: button.btn.btn-default.navbar-btn[type='button'] Your Profile
 
