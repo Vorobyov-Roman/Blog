@@ -6,9 +6,9 @@ div.modal.fade#signup[tabindex='-1' role='dialog']
 
       div.modal-body
         form
-          div.form-group: input.form-control[type='text'     placeholder='Email'    ng-model='ctrl.userinfo.email'    ng-model-options='{ updateOn: "blur" }']
-          div.form-group: input.form-control[type='text'     placeholder='Username' ng-model='ctrl.userinfo.username' ng-model-options='{ updateOn: "blur" }']
-          div.form-group: input.form-control[type='password' placeholder='Password' ng-model='ctrl.userinfo.password' ng-model-options='{ updateOn: "blur" }']
+          div.form-group: dialog-input[placeholder='Email'    type='email']
+          div.form-group: dialog-input[placeholder='Username' type='text']
+          div.form-group: dialog-input[placeholder='Password' type='password']
 
       div.modal-footer
         button.btn.btn-default[data-dismiss='modal'] Close

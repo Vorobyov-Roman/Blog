@@ -16,7 +16,7 @@
       // Ignore the first call from the digest loop
       if (newVal === undefined) { return; }
 
-      
+      console.log('Value changed');
     }, true);
   };
 
