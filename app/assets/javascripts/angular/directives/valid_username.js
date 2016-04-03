@@ -49,5 +49,5 @@
     }
   }
 
-  angular.module('validators').directive('validUsername', [validUsername]);
+  angular.module('inputs').directive('validUsername', [validUsername]);
 })();

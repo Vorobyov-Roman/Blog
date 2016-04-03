@@ -2,8 +2,8 @@
   'use strict';
 
   angular.module('utility', []);
-  angular.module('validators', ['utility']);
-  angular.module('app', ['ngRoute', 'templates', 'validators', 'utility']);
+  angular.module('inputs', ['utility']);
+  angular.module('app', ['ngRoute', 'templates', 'inputs', 'utility', 'ui.bootstrap']);
 })();
 
 //= require_tree ./config

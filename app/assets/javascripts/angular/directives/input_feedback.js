@@ -4,7 +4,7 @@
 (function() {
   'use strict';
 
-  function inputFeedback(utility) {
+  function inputFeedback() {
     return {
       restrict: 'A',
       require: 'ngModel',
@@ -23,17 +23,23 @@
           $scope.inputInfo = inputInfo;
         }
       },
-      link: function($scope, $elem, $attrs, ctrl) {
-        utility.iterateOver($scope.messages, function(trigger, message) {
-          $scope.$watch(function() { return ctrl.$error[trigger] }, function(newValue, oldValue) {
-            if (newValue === undefined) { return }
+      compile: function($elem, $attrs) {
+        return function($scope, $elem, $attrs, ctrl) {
+          angular.forEach($scope.inputInfo, function(value, key) {
+            $elem.attr(key, value);
+          });
 
-            console.log(message);
-          }, true);
-        });
+          // utility.iterateOver($scope.messages, function(trigger, message) {
+          //   $scope.$watch(function() { return ctrl.$error[trigger] }, function(newValue, oldValue) {
+          //     if (newValue === undefined) { return }
+
+          //     console.log(ctrl.$error);
+          //   }, true);
+          // });
+        }
       }
     }
   }
 
-  angular.module('validators').directive('inputFeedback', ['utility', inputFeedback]);
+  angular.module('inputs').directive('inputFeedback', [inputFeedback]);
 })();
