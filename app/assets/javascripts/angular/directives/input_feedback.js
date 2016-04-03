@@ -23,23 +23,12 @@
       },
       link: function($scope, $elem, $attrs, ctrl) {
         utility.iterateOver($scope.messages, function(trigger, message) {
-          $scope.$watch(function() { return ctrl.$error[trigger]; }, function(newValue, oldValue) {
-            if (newValue === undefined) { return; }
+          $scope.$watch(function() { return ctrl.$error[trigger] }, function(newValue, oldValue) {
+            if (newValue === undefined) { return }
 
             console.log(message);
           }, true);
         });
-
-
-        // for (let trigger in $scope.messages) {
-        //   if (!$scope.messages.hasOwnProperty(trigger)) { continue; }
-
-        //   $scope.$watch(function() { return ctrl.$error[trigger]; }, function(newValue, oldValue) {
-        //     if (newValue === oldValue) { return; }
-
-            
-        //   }, true);
-        // }
       }
     }
   }

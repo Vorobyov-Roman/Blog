@@ -11,7 +11,7 @@
       .otherwise({
         redirectTo: '/'
       });
-  };
+  }
 
   angular.module('app').config(['$routeProvider', routes]);
 })();

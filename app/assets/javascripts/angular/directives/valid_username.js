@@ -46,7 +46,7 @@
           );
         }
       }
-    };
+    }
   }
 
   angular.module('validators').directive('validUsername', [validUsername]);
