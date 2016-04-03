@@ -8,9 +8,11 @@
     return {
       restrict: 'A',
       require: 'ngModel',
-      scope: {},
+      scope: {
+        messages: '=?inputFeedback'
+      },
       controller: function($scope) {
-        $scope.messages = {};
+        if (!$scope.messages) $scope.messages = {};
         $scope.inputInfo = {};
 
         this.addMessage = function(trigger, message) {
