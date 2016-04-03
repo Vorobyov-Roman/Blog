@@ -1,8 +1,9 @@
 (function() {
   'use strict';
 
-  angular.module('validators', []);
-  angular.module('app', ['ngRoute', 'templates', 'validators']);
+  angular.module('utility', []);
+  angular.module('validators', ['utility']);
+  angular.module('app', ['ngRoute', 'templates', 'validators', 'utility']);
 })();
 
 //= require_tree ./config
