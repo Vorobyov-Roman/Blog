@@ -6,9 +6,8 @@ div.modal.fade#signup[tabindex='-1' role='dialog']
 
       div.modal-body
         form
-          div.form-group: input.form-control[ng-model='ctrl.userinfo.email']
-          div.form-group: input.form-control[ng-model='ctrl.userinfo.username' input-feedback valid-username]
-          div.form-group: input.form-control[ng-model='ctrl.userinfo.password']
+          div.form-group[ng-controller='InputController as input']
+            input.form-control[ng-model='ctrl.userinfo.username' on-statechange='input.onStateChange(validation, state, args)' my-maxlength='3' uib-popover-template='input.templateUrl' popover-placement='auto right' popover-is-open='input.report' popover-trigger='none']
 
       div.modal-footer
         button.btn.btn-default[data-dismiss='modal'] Close
