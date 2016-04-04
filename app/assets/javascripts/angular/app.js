@@ -7,6 +7,8 @@
 })();
 
 //= require_tree ./config
+//= require_tree ./misc
 //= require_tree ./services
 //= require_tree ./controllers
 //= require_tree ./directives
+

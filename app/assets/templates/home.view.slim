@@ -1,0 +1,9 @@
+div[ng-controller='SignupController as ctrl' style='width: 400px; margin: auto;']
+  div
+    form
+      my-input[ng-model='ctrl.userinfo.username']
+        validation[ng-minlength='3' ng-maxlength='5'] Invalid size
+        validation[valid-characters] Invalid charset
+
+  div
+    button.btn.btn-primary[ng-click='ctrl.submit()'] Submit
