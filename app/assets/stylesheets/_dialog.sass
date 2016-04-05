@@ -1,4 +1,12 @@
 // Styles for dialogs
 
+@import variables
+
+// Since the modal already has the padding, there is no need for extra margin on the last child
 .form-group:last-child
+  margin-bottom: 0
+
+.validation-error
+  color: red
+  margin: $gap-sm
   margin-bottom: 0

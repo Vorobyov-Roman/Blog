@@ -3,7 +3,7 @@
 
   angular.module('utility', []);
   angular.module('inputs', ['utility']);
-  angular.module('app', ['ngRoute', 'templates', 'inputs', 'utility', 'ui.bootstrap']);
+  angular.module('app', ['ngRoute', 'templates', 'ui.bootstrap', 'ngAnimate', 'inputs', 'utility']);
 })();
 
 //= require_tree ./config

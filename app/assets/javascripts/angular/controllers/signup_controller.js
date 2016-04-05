@@ -11,8 +11,6 @@
     self.submit = function() {
       console.log(self.userinfo);
     }
-
-    self.greeting = 'hello';
   }
 
   angular.module('app').controller('SignupController', [

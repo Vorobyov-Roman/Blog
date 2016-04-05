@@ -5,9 +5,15 @@ div.modal.fade#signup[tabindex='-1' role='dialog']
         h4.modal-title Sign Up
 
       div.modal-body
-        form
-          div.form-group
-            input.form-control[ng-model='ctrl.userinfo.username' ng-minlength='3']
+        form[name='form']
+          my-input[ng-model='ctrl.userinfo.email']
+            validation[required] This is required
+
+          my-input[ng-model='ctrl.userinfo.username']
+            validation[required] This is required
+
+          my-input[ng-model='ctrl.userinfo.password']
+            validation[required] This is required
 
       div.modal-footer
         button.btn.btn-default[data-dismiss='modal'] Close

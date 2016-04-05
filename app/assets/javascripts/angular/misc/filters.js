@@ -21,8 +21,15 @@
     }
   }
 
+  function removeNg() {
+    return function(str) {
+      return str.replace('ng-', '');
+    }
+  }
+
   angular.module('utility')
     .filter('camelToDash', camelToDash)
     .filter('chopped', chopped)
-    .filter('capitalized', capitalized);
+    .filter('capitalized', capitalized)
+    .filter('removeNg', removeNg);
 })();
