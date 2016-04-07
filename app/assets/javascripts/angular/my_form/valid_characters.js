@@ -11,5 +11,5 @@
     }
   }
 
-  angular.module('inputs').directive('validCharacters', [validCharacters]);
+  angular.module('myForm').directive('validCharacters', [validCharacters]);
 })();

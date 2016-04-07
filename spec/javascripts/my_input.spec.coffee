@@ -1,4 +1,4 @@
-#= require application
+#= require angular/my_form/module
 #= require angular-mocks
 
 describe 'Directive: my-input', ->
@@ -10,7 +10,7 @@ describe 'Directive: my-input', ->
     scope.$digest()
     element.children()
 
-  beforeEach module('inputs')
+  beforeEach module('myForm')
 
   beforeEach inject ($compile, $rootScope) ->
     compile = $compile

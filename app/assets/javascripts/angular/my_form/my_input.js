@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  function myInput($compile, $filter) {
+  function myInput($compile, $filter) {    
     var camelToDash = $filter('camelToDash');
     var chopped     = $filter('chopped');
     var capitalized = $filter('capitalized');
@@ -161,5 +161,5 @@
     }
   }
 
-  angular.module('inputs').directive('myInput', ['$compile', '$filter', myInput]);
+  angular.module('myForm').directive('myInput', ['$compile', '$filter', myInput]);
 })();

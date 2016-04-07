@@ -13,8 +13,5 @@
     }
   }
 
-  angular.module('app').controller('SignupController', [
-    '$scope',
-    signupController
-  ]);
+  angular.module('myForm').controller('SignupController', ['$scope', signupController]);
 })();
