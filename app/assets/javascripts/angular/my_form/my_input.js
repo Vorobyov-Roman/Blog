@@ -117,7 +117,7 @@
 
     return {
       restrict: 'E',
-      require: ['^form', '?ngModel'],
+      require: ['^^form', '?ngModel'],
       scope: {},
       compile: function($elem, $attrs) {
         var attrs = {};
