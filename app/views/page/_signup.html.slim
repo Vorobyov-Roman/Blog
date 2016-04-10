@@ -8,13 +8,17 @@ div.modal.fade#signup[tabindex='-1' role='dialog']
         form[name='form']
           my-input[ng-model='ctrl.userinfo.email']
             validation[required] This is required
-            validation[valid-characters='a-zA-Z0-9-_'] Invalid characters
 
           my-input[ng-model='ctrl.userinfo.username']
             validation[required] This is required
+            validation[ng-minlength="3"] Username is too short (minimum 3 characters)
+            validation[ng-maxlength="15"] Username is too long (maximum 15 characters)
+            validation[valid-characters='a-zA-Z0-9-_'] Username may only contain letters, numbers, dashes and underscores
 
           my-input[ng-model='ctrl.userinfo.password']
             validation[required] This is required
+            validation[ng-minlength="5"] Password is too short (minimum 5 characters)
+            validation[ng-maxlength="100"] No need for a password to be that big
 
       div.modal-footer
         button.btn.btn-default[data-dismiss='modal'] Close
