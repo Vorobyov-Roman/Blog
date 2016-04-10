@@ -9,6 +9,14 @@
     }
   }
 
+  function dashToCamel() {
+    return function(str) {
+      return str.replace(/-./g, function(match) {
+        return match.toUpperCase().replace('-', '');
+      });
+    }
+  }
+
   function chopped() {
     return function(str) {
       return str.split('.').pop();
@@ -29,6 +37,7 @@
 
   angular.module('utility')
     .filter('camelToDash', camelToDash)
+    .filter('dashToCamel', dashToCamel)
     .filter('chopped', chopped)
     .filter('capitalized', capitalized)
     .filter('removeNg', removeNg);

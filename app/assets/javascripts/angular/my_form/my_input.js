@@ -3,6 +3,7 @@
 
   function myInput($compile, $filter) {    
     var camelToDash = $filter('camelToDash');
+    var dashToCamel = $filter('dashToCamel');
     var chopped     = $filter('chopped');
     var capitalized = $filter('capitalized');
     var removeNg    = $filter('removeNg');
@@ -43,7 +44,7 @@
 
       angular.forEach(validators, function(validator) {
         var newMessage = {
-          message: validator.innerHTML,
+          msg: validator.innerHTML,
           rules: []
         }
 
@@ -99,7 +100,7 @@
         angular.forEach(validations, function(validation, index) {
           var validationMessage = angular.element('<div></div>');
           validationMessage.attr('uib-collapse', 'validate(' + index + ')');
-          validationMessage.append('<div class="validation-error">' + validation.message + '</div>');
+          validationMessage.append('<div class="validation-error">' + validation.msg + '</div>');
 
           wrapperElement.append(validationMessage);
         });
@@ -141,7 +142,8 @@
               var status = false;
 
               angular.forEach(triggers, function(trigger) {
-                var triggerStatus = formCtrl[attrs.name].$error[removeNg(trigger.name)];
+                var triggeredError = dashToCamel(removeNg(trigger.name));
+                var triggerStatus = formCtrl[attrs.name].$error[triggeredError];
                 status = status || (triggerStatus && formCtrl[attrs.name].$dirty);
               });
 

@@ -91,7 +91,7 @@ describe 'my-input directive:', ->
             <my-input ng-model="abc.def.email"></my-input>
             <my-input ng-model="abc.def.password"></my-input>
           </form>
-        """)(rootScope.$new())
+        """) rootScope.$new()
 
       it 'should deduct "name" attribute from "ng-model" value', ->
         form.children().each ->

@@ -8,6 +8,7 @@ div.modal.fade#signup[tabindex='-1' role='dialog']
         form[name='form']
           my-input[ng-model='ctrl.userinfo.email']
             validation[required] This is required
+            validation[valid-characters='a-zA-Z0-9-_'] Invalid characters
 
           my-input[ng-model='ctrl.userinfo.username']
             validation[required] This is required
