@@ -1,5 +1,7 @@
 == README
 
 AngularJS modules are in app/assets/javascripts/angular
+
 AngularJS templates are in app/assets/templates
+
 Tests are in specs/javascripts
