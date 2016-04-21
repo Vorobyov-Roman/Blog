@@ -1,17 +1,16 @@
 (function() {
   'use strict';
 
-  function signupController($scope) {
+  function signupController(authService) {
     var self = this;
 
-    function getSelf(property) {
-      return function() { return self[property] };
-    }
-
     self.submit = function() {
-      console.log(self.userinfo);
+      authService.register(self.userinfo).then(
+        function(data) { console.log('success') },
+        function(error) { console.log('error') }
+      );
     }
   }
 
-  angular.module('myForm').controller('SignupController', ['$scope', signupController]);
+  angular.module('myForm').controller('SignupController', ['authService', signupController]);
 })();

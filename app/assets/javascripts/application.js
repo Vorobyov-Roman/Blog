@@ -5,6 +5,7 @@
 //= require angular
 //= require angular-route
 //= require angular-animate
+//= require angular-resource
 //= require ui-bootstrap-tpls-1.2.5.min
 //= require angular-rails-templates
 //= require_tree ../templates
