@@ -8,6 +8,6 @@ class Api::AuthController < ApplicationController
     user = User.where(name:     credentials[:name],
                       password: credentials[:password]).take!
 
-    render json: encode(user, logged_in: true)
+    render json: { token: encode(user, logged_in: true) }
   end
 end
