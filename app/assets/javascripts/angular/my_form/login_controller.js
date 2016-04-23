@@ -3,10 +3,12 @@
 
   function loginController(authService, $rootScope) {
     var self = this;
+    var dialog = $('#login');
 
     self.submit = function() {
       function onSuccess(token) {
         $rootScope.$broadcast('LOGGED_IN', token);
+        dialog.modal('hide');
       }
 
       function onError(error) {

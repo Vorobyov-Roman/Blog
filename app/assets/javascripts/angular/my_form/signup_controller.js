@@ -1,12 +1,21 @@
 (function() {
   'use strict';
 
-  function signupController(authService) {
+  function signupController(authService, $rootScope) {
     var self = this;
+    var dialog = $('#signup');
 
     self.submit = function() {
       function onSuccess(data) {
-        console.log('success');
+        var credentials = {
+          name: self.userinfo.name,
+          password: self.userinfo.password
+        }
+
+        authService.logIn(credentials).then(function(token) {
+          $rootScope.$broadcast('LOGGED_IN', token);
+          dialog.modal('hide');
+        });
       }
 
       function onError(error) {
@@ -19,6 +28,7 @@
 
   angular.module('myForm').controller('SignupController', [
     'authService',
+    '$rootScope',
     signupController
   ]);
 })();
