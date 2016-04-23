@@ -1,9 +1,11 @@
 (function() {
   'use strict';
 
-  function authService($http, $q, userService, jwtHelper) {
+  function authService($http, $q, Model, jwtHelper) {
+    var User = new Model('users');
+
     this.register = function(userinfo) {
-      return userService.save({ userinfo: userinfo }).$promise;
+      return User.create({ userinfo: userinfo });
     }
 
     this.logIn = function(userinfo) {
@@ -14,12 +16,8 @@
         password: userinfo.password
       }
 
-      // Wrap in a promise to decode the token before it is sent further
       $http.post('/api/login', { userinfo: credentials }).then(
-        function success(response) {
-          var data = jwtHelper.decodeToken(response.data.token);
-          defObj.resolve(data);
-        },
+        function success(response) { defObj.resolve(response.data.token) },
         function error(error) { defObj.reject(error) }
       );
 
@@ -30,7 +28,7 @@
   angular.module('backend').service('authService', [
     '$http',
     '$q',
-    'userService',
+    'modelService',
     'jwtHelper',
     authService
   ]);

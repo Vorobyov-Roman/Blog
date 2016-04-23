@@ -1,16 +1,25 @@
 (function() {
   'use strict';
 
-  function loginController(authService) {
+  function loginController(authService, $rootScope) {
     var self = this;
 
     self.submit = function() {
-      authService.logIn(self.userinfo).then(
-        function(data) { console.log(data) },
-        function(error) { console.log('error') }
-      );
+      function onSuccess(token) {
+        $rootScope.$broadcast('LOGGED_IN', token);
+      }
+
+      function onError(error) {
+        console.log('error');
+      }
+
+      authService.logIn(self.userinfo).then(onSuccess, onError);
     }
   }
 
-  angular.module('myForm').controller('LoginController', ['authService', loginController]);
+  angular.module('myForm').controller('LoginController', [
+    'authService',
+    '$rootScope',
+    loginController
+  ]);
 })();

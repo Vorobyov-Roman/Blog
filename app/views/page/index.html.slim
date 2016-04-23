@@ -1,11 +1,12 @@
-div#header
-  == render partial: 'header'
+div[ng-controller='ApplicationController as global']
+  div#header
+    == render partial: 'header'
 
-div#content
-  ng-view
+  div#content
+    ng-view
 
-div#footer
-  == render partial: 'footer'
+  div#footer
+    == render partial: 'footer'
 
-== render partial: 'signup'
-== render partial: 'login'
+  == render partial: 'signup'
+  == render partial: 'login'

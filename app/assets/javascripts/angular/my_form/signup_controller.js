@@ -5,10 +5,15 @@
     var self = this;
 
     self.submit = function() {
-      authService.register(self.userinfo).then(
-        function(data) { console.log('success') },
-        function(error) { console.log('error') }
-      );
+      function onSuccess(data) {
+        console.log('success');
+      }
+
+      function onError(error) {
+        console.log('error');
+      }
+
+      authService.register(self.userinfo).then(onSuccess, onError);
     }
   }
 
