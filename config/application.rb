@@ -26,7 +26,7 @@ module Blog
     # Use .sass extention instead of .scss
     config.sass.preferred_syntax = :sass
 
-    # Use .view suffix for angular templates
-    config.angular_templates.extension = 'view'
+    # Use .template suffix for angular templates
+    config.angular_templates.extension = 'template'
   end
 end

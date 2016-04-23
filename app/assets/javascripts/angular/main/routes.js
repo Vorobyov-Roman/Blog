@@ -4,9 +4,8 @@
   function routes($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'home.view',
-        controller: 'HomeController',
-        controllerAs: 'ctrl'
+        templateUrl: 'home.template',
+        controller: 'HomeController as ctrl',
       })
       .otherwise({
         redirectTo: '/'

@@ -17,5 +17,8 @@
     }
   }
 
-  angular.module('myForm').controller('SignupController', ['authService', signupController]);
+  angular.module('myForm').controller('SignupController', [
+    'authService',
+    signupController
+  ]);
 })();
