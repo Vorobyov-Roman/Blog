@@ -8,9 +8,18 @@ class Api::UsersController < ApplicationController
   end
 
   def create
-    user = User.create!(user_params)
+    user = User.create(user_params)
 
-    render json: user
+    messages = []
+    status_code = if user.errors.empty?
+                    messages.push('New user is successfully registered.')
+                    :created
+                  else
+                    messages.push(*user.errors.full_messages)
+                    :bad_request  
+                  end
+
+    render json: { messages: messages }, status: status_code
   end
 
 private

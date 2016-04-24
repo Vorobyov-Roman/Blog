@@ -7,6 +7,8 @@
 
     self.submit = function() {
       function onSuccess(data) {
+        console.log('success', data);
+
         var credentials = {
           name: self.userinfo.name,
           password: self.userinfo.password
@@ -19,7 +21,7 @@
       }
 
       function onError(error) {
-        console.log('error');
+        console.log('error', error);
       }
 
       authService.register(self.userinfo).then(onSuccess, onError);
