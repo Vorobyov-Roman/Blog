@@ -6,8 +6,22 @@ class Api::AuthController < ApplicationController
   def login
     credentials = params.require(:userinfo)
     user = User.where(name:     credentials[:name],
-                      password: credentials[:password]).take!
+                      password: credentials[:password]).take
 
-    render json: { token: encode(logged_in: true) }
+    data = {
+      messages: []
+    }
+    status_code = if user
+                    data[:token] = encode(logged_in: 1)
+                    data[:messages].push('Successfully logged in.')
+
+                    :ok
+                  else
+                    data[:messages].push('Invalid authentication data.')
+
+                    :unauthorized
+                  end
+
+    render json: data, status: status_code
   end
 end

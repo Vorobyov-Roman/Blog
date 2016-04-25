@@ -13,9 +13,11 @@ class Api::UsersController < ApplicationController
     messages = []
     status_code = if user.errors.empty?
                     messages.push('New user is successfully registered.')
+
                     :created
                   else
                     messages.push(*user.errors.full_messages)
+                    
                     :bad_request  
                   end
 
