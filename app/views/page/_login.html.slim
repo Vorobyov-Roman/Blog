@@ -6,13 +6,18 @@ div.modal.fade#login[tabindex='-1' role='dialog']
 
       div.modal-body
         form[name='form']
-          my-input[ng-model='ctrl.userinfo.name']
-            validation[required] This is required
-            validation[ng-minlength='3' ng-maxlength='15' valid-characters='a-zA-Z0-9-_'] Invalid username
+          div.form-group[has-feedback='form.name']
+            input.form-control[my-input='ctrl.userinfo.name' required ng-minlength='3' ng-maxlength='15' allowed-characters='a-zA-Z0-9-_']
+            div[validation='required' validation-for='form.name'] Username is required
+            div[validation='minlength' validation-for='form.name'] Invalid username
+            div[validation='maxlength' validation-for='form.name'] Invalid username
+            div[validation='allowed-characters' validation-for='form.name'] Invalid username
 
-          my-input[ng-model='ctrl.userinfo.password']
-            validation[required] This is required
-            validation[ng-minlength='5' ng-maxlength='100'] Invalid password
+          div.form-group[has-feedback='form.password']
+            input.form-control[my-input='ctrl.userinfo.password' required ng-minlength='5' ng-maxlength='100']
+            div[validation='required' validation-for='form.password'] Password is required
+            div[validation='minlength' validation-for='form.password'] Invalid password
+            div[validation='maxlength' validation-for='form.password'] Invalid password
 
       div.modal-footer
         button.btn.btn-default[data-dismiss='modal'] Close

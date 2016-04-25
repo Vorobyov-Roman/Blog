@@ -6,19 +6,22 @@ div.modal.fade#signup[tabindex='-1' role='dialog']
 
       div.modal-body
         form[name='form']
-          my-input[ng-model='ctrl.userinfo.email']
-            validation[required] This is required
+          div.form-group[has-feedback='form.name']
+            input.form-control[my-input='ctrl.userinfo.name' required ng-minlength='3' ng-maxlength='15' allowed-characters='a-zA-Z0-9-_']
+            div[validation='required' validation-for='form.name'] Username is required
+            div[validation='minlength' validation-for='form.name'] Username is too short (minimum 3 characters)
+            div[validation='maxlength' validation-for='form.name'] Username is too long (maximum 15 characters)
+            div[validation='allowedCharacters' validation-for='form.name'] Username may only contain letters, numbers, dashes and underscores
 
-          my-input[ng-model='ctrl.userinfo.name']
-            validation[required] This is required
-            validation[ng-minlength='3'] Username is too short (minimum 3 characters)
-            validation[ng-maxlength='15'] Username is too long (maximum 15 characters)
-            validation[valid-characters='a-zA-Z0-9-_'] Username may only contain letters, numbers, dashes and underscores
+          div.form-group[has-feedback='form.email']
+            input.form-control[my-input='ctrl.userinfo.email' required]
+            div[validation='required' validation-for='form.email'] Email is required
 
-          my-input[ng-model='ctrl.userinfo.password']
-            validation[required] This is required
-            validation[ng-minlength='5'] Password is too short (minimum 5 characters)
-            validation[ng-maxlength='100'] No need for a password to be that big
+          div.form-group[has-feedback='form.password']
+            input.form-control[my-input='ctrl.userinfo.password' required ng-minlength='5' ng-maxlength='100']
+            div[validation='required' validation-for='form.password'] Password is required
+            div[validation='minlength' validation-for='form.password'] Password is too short (minimum 5 characters)
+            div[validation='maxlength' validation-for='form.password'] No need for a password to be that big
 
       div.modal-footer
         button.btn.btn-default[ng-click='ctrl.close()'] Close

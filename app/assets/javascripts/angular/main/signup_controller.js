@@ -8,7 +8,7 @@
     function closeDialog() {
       dialog.modal('hide').on('hidden.bs.modal', function(e) {
         self.userinfo = null;
-        $scope.form.$setPristine();
+        $scope.$broadcast('CLEAR_FORM');
       });
     }
 
@@ -29,11 +29,7 @@
         console.log('error', error);
       }
 
-      angular.forEach($scope.form, function(field, key) {
-        if (key[0] !== '$') {
-          field.$setDirty();
-        }
-      });
+      $scope.$broadcast('VALIDATE_FORM');
 
       if ($scope.form.$valid) {
         authService.register(self.userinfo).then(onSuccess, onError);
@@ -45,7 +41,7 @@
     }
   }
 
-  angular.module('myForm').controller('SignupController', [
+  angular.module('app').controller('SignupController', [
     'authService',
     '$scope',
     '$rootScope',
