@@ -7,12 +7,10 @@
     self.loggedIn = localStorage.getItem('authToken') ? true : false;
 
     function onLoggedIn(token) {
-      localStorage.setItem('authToken', token);
       self.loggedIn = true;
     }
 
     function onLoggedOut() {
-      localStorage.removeItem('authToken');
       self.loggedIn = false;
     }
 

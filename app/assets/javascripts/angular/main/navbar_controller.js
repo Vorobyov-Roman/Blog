@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  function navbarController($rootScope) {
+  function navbarController($rootScope, authService) {
     this.signup = function() {
       $('#signup').modal('show');
     }
@@ -11,6 +11,7 @@
     }
 
     this.logout = function() {
+      authService.logOut();
       $rootScope.$broadcast('LOGGED_OUT');
     }
   }

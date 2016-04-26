@@ -17,11 +17,21 @@
       }
 
       $http.post('/api/login', { userinfo: credentials }).then(
-        function success(response) { defObj.resolve(response.data.token) },
+        function success(response) {
+          var token = response.data.token;
+
+          localStorage.setItem('authToken', token);
+
+          defObj.resolve(token);
+        },
         function error(error) { defObj.reject(error) }
       );
 
       return defObj.promise;
+    }
+
+    this.logOut = function() {
+      localStorage.removeItem('authToken');
     }
   }
 
