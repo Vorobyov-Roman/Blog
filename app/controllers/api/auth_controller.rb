@@ -12,7 +12,7 @@ class Api::AuthController < ApplicationController
       messages: []
     }
     status_code = if user
-                    data[:token] = encode(logged_in: 1)
+                    data[:token] = encode(name: user.name, logged_in: 1)
                     data[:messages].push('Successfully logged in.')
 
                     :ok
