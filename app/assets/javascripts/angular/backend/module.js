@@ -1,4 +1,4 @@
 //= require_self
 //= require_tree .
 
-angular.module('backend', ['ngResource', 'angular-jwt']);
+angular.module('backend', ['utility', 'ngResource', 'angular-jwt']);

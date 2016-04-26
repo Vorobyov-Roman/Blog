@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  function loginController(authService, $scope, $rootScope) {
+  function loginController(authService, $scope) {
     var self = this;
     var dialog = $('#login');
 
@@ -13,19 +13,13 @@
     }
 
     self.submit = function() {
-      function onSuccess(token) {
-        $rootScope.$broadcast('LOGGED_IN', token);
-        closeDialog();
-      }
-
-      function onError(error) {
-        console.log('error', error);
-      }
-
       $scope.$broadcast('VALIDATE_FORM');
 
       if ($scope.form.$valid) {
-        authService.logIn(self.userinfo).then(onSuccess, onError);
+        authService.logIn(self.userinfo).then(
+          function(token) { closeDialog() },
+          function(error) { console.log('error', error) }
+        );
       }
     }
 
@@ -37,7 +31,6 @@
   angular.module('app').controller('LoginController', [
     'authService',
     '$scope',
-    '$rootScope',
     loginController
   ]);
 })();
