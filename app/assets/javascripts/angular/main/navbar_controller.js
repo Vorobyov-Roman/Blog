@@ -16,5 +16,9 @@
     }
   }
 
-  angular.module('app').controller('NavbarController', ['$rootScope', navbarController]);
+  angular.module('app').controller('NavbarController', [
+    '$rootScope',
+    'authService',
+    navbarController
+  ]);
 })();
