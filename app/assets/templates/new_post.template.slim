@@ -1,0 +1,14 @@
+div.form[ng-controller='NewPostController as ctrl']
+  form[name='form']
+    div.form-group[ng-class='{"has-error": form.title.$invalid && form.title.$dirty}']
+      input.form-control[my-input='ctrl.post.title' required ng-maxlength='100']
+      div[validation='required' validation-for='form.title'] Title is required
+      div[validation='maxlength' validation-for='form.title'] Title is too big
+
+    div.form-group[ng-class='{"has-error": form.text.$invalid && form.text.$dirty}']
+      textarea.form-control[my-input='ctrl.post.text' required]
+      div[validation='required' validation-for='form.text'] Text is required
+
+    div.form-group
+      button.btn.btn-default[type='button' ng-click='ctrl.cancel()'] Cancel
+      button.btn.btn-primary[type='button' ng-click='ctrl.submit()'] Submit

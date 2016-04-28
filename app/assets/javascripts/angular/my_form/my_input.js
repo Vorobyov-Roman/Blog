@@ -8,7 +8,7 @@
 
     return {
       restrict: 'A',
-      scope: {},
+      scope: true,
       require: '^^form',
       link: function($scope, $elem, $attrs, formCtrl) {
         var name = chopped($attrs.myInput);

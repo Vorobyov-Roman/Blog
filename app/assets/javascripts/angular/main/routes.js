@@ -8,8 +8,7 @@
         controller: 'HomeController as ctrl',
       })
       .when('/new_post', {
-        templateUrl: 'new_post.template',
-        controller: 'NewPostController as ctrl'
+        templateUrl: 'new_post.template'
       })
       .otherwise({
         redirectTo: '/'
