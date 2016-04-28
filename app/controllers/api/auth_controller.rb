@@ -1,6 +1,4 @@
 class Api::AuthController < ApplicationController
-  include JwtHelper
-
   respond_to :json
 
   def login

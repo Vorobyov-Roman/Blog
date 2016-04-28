@@ -5,6 +5,11 @@ module JwtHelper
     JWT.encode(payload, secret, 'HS256')
   end
 
+  def decode(token)
+    body, header = JWT.decode(token, secret, true, algorithm: 'HS256')
+    body
+  end
+
 private
   def camelized(hash)
     hash.map { |k, v| [k.to_s.camelize(:lower), v] }.to_h
