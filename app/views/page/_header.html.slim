@@ -9,7 +9,7 @@ nav.navbar.navbar-default[ng-controller='NavbarController as ctrl']
         span.icon-bar
 
     div.navbar-collapse.collapse#navbar-content
-      ul.nav.navbar-nav.navbar-right[ng-cloak]
+      ul.nav.navbar-nav.navbar-right
         li[ng-hide='ctrl.loggedIn']: button.btn.btn-default.navbar-btn[type='button' ng-click='ctrl.signup()'] Sign Up
         li[ng-hide='ctrl.loggedIn']: button.btn.btn-default.navbar-btn[type='button' ng-click='ctrl.login()'] Log In
         li[ng-show='ctrl.loggedIn']: button.btn.btn-default.navbar-btn[type='button' ng-click='ctrl.newPost()'] New Post

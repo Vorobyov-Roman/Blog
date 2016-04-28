@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  function navbarController($rootScope, $scope, authService, utilityService, Model) {
+  function navbarController($rootScope, $scope, $location, authService, utilityService) {
     utilityService.defineGetters(this, {
       loggedIn: function() {
         return authService.currentUser.loggedIn;
@@ -25,24 +25,19 @@
 
     this.logout = function() {
       authService.logOut();
-      $rootScope.$broadcast('LOGGED_OUT');
     }
 
     this.newPost = function() {
-      var Post = new Model('posts');
-      Post.create().then(
-        function(response) { console.log('success', response) },
-        function(error) { console.log('error', error) }
-      );
+      $location.path('/new_post');
     }
   }
 
   angular.module('app').controller('NavbarController', [
     '$rootScope',
     '$scope',
+    '$location',
     'authService',
     'utilityService',
-    'modelService',
     navbarController
   ]);
 })();
