@@ -12,8 +12,14 @@ nav.navbar.navbar-default[ng-controller='NavbarController as ctrl']
       ul.nav.navbar-nav.navbar-right[ng-cloak]
         li[ng-hide='ctrl.loggedIn']: button.btn.btn-default.navbar-btn[type='button' ng-click='ctrl.signup()'] Sign Up
         li[ng-hide='ctrl.loggedIn']: button.btn.btn-default.navbar-btn[type='button' ng-click='ctrl.login()'] Log In
-        li[ng-show='ctrl.loggedIn']: button.btn.btn-default.navbar-btn[type='button' ng-click='ctrl.logout()'] Log Out
-        li[ng-show='ctrl.loggedIn']: button.btn.btn-default.navbar-btn[type='button'] {{ ctrl.username }}
+        li[ng-show='ctrl.loggedIn']: button.btn.btn-default.navbar-btn[type='button'] New Post
+        li[ng-show='ctrl.loggedIn']
+          div.btn-group
+            button.btn.btn-default.navbar-btn.dropdown-toggle[type='button' data-toggle='dropdown'] {{ ctrl.username }}
+            ul.dropdown-menu
+              li: a Your Profile
+              li.divider[role='separator']
+              li: a[ng-click='ctrl.logout()'] Log Out
 
       form.navbar-form#search-bar
         div.form-group
