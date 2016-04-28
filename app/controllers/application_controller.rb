@@ -1,5 +1,12 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session
+
+  rescue_from ActionController::ParameterMissing, with: :parameter_missing
+
+private
+  def parameter_missing
+    messages = ['Invalid request.']
+
+    render json: { messages: messages }, status: :bad_request
+  end
 end
