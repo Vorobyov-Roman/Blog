@@ -1,11 +1,11 @@
-div#header
-  == render partial: 'header'
+div#main-container
+  div#header
+    == render partial: 'header'
 
-div#content
-  ng-view
+  div#content[ng-view]
 
-div#footer
-  == render partial: 'footer'
+  div#footer
+    == render partial: 'footer'
 
 == render partial: 'signup'
 == render partial: 'login'
